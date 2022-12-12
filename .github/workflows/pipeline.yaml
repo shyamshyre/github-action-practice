@@ -37,13 +37,14 @@ jobs:
       run: " Liting completed"
   
   build:
-    needs: Testing
+    needs: testing
     runs-on: ubuntu-latest
     steps:
     - name: Build the Project 
       run: npm build"
 
   info:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: "Display the info"
