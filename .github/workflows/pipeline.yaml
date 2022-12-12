@@ -17,6 +17,8 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 16
+    - name: "Install dependencies"
+      run: npm ci   
     - name: "install complete"
       run: echo "Installation of Nodejs Complete.. "
 
@@ -24,6 +26,10 @@ jobs:
     needs: installnode
     runs-on: ubuntu-latest
     steps:
+    - name: Install Node
+      uses: actions/checkout@v3
+    - name: Install dependencies
+      run: npm ci
     - name: Linting the Project 
       run: npm i --save-dev eslint
 
@@ -31,10 +37,16 @@ jobs:
     needs: linting
     runs-on: ubuntu-latest
     steps:
-    - name: Testing the Project 
+    - name: Install Node
+      uses: actions/checkout@v3
+    - name: Install dependencies
+      run: npm ci
+    - name: Linting the Project 
+      run: npm lint
+    - name: testing the Project
       run: npm test
-    - name: Linting complete
-      run: echo " Liting completed"
+    - name: Testing complete
+      run: " Testing completed"
   
   build:
     needs: testing
@@ -44,7 +56,6 @@ jobs:
       run: npm build"
 
   info:
-    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: "Display the info"
