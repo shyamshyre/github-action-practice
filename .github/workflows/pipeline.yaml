@@ -74,6 +74,7 @@ jobs:
       run: " Testing completed"
 
   info:
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Install Node
