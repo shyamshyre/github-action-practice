@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Linting the Project 
-      run: npm lint
+      run: npm i --save-dev eslint
 
   testing:
     needs: linting
