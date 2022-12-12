@@ -54,7 +54,7 @@ jobs:
     - name: testing the Project
       run: npm test
     - name: Testing complete
-      run: " Testing completed"
+      run: echo " Testing completed"
   
   build:
     needs: testing
@@ -71,7 +71,7 @@ jobs:
     - name: testing the Project
       run: npm test
     - name: Testing complete
-      run: " Testing completed"
+      run: echo " Testing completed"
 
   info:
     needs: build
@@ -86,11 +86,11 @@ jobs:
     - name: Linting the Project 
       run: npm lint
     - name: testing the Project
-      run: npm test
+      run: npm run test
     - name: Testing complete
-      run: " Testing completed"
+      run: echo " Testing completed"
     - name: "Display the info"
-      run: echo {{$toJOSN(github)}}
+      run: echo {{$toJSON(github)}}
 
   
   
