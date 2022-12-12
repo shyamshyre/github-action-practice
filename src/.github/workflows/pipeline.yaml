@@ -1,0 +1,56 @@
+name: Build Pipeline
+on: workflow_dispatch
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+    - name: InstallNode
+      uses: actions/checkout@v3
+    - name: Checkout complete
+      run:  echo " Checkout Complete"
+
+  installnode: 
+    needs: checkout
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Nodes
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: "Instlal dependencies"
+      run: npm ci   
+    - name: "install complete"
+      run: echo "Installation of Nodejs Complete.. "
+
+  linting:
+    needs: installnode
+    runs-on: ubuntu-latest
+    steps:
+    - name: Linting the Project 
+      run: npm lint
+
+  testing:
+    needs: linting
+    runs-on: ubuntu-latest
+    steps:
+    - name: Linting the Project 
+      run: npm test
+    - name: Linting complete
+      run: " Liting completed"
+  
+  build:
+    needs: Testing
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build the Project 
+      run: npm build"
+
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Display the info"
+        run: echo {{$toJOSN(github)}}
+
+  
+  
+      
