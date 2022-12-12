@@ -86,7 +86,7 @@ jobs:
     - name: Linting the Project 
       run: npm lint
     - name: testing the Project
-      run: npm test
+      run: npm run test
     - name: Testing complete
       run: echo " Testing completed"
     - name: "Display the info"
