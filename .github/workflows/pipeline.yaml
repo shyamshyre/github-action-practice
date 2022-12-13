@@ -54,7 +54,7 @@ jobs:
     - name: testing the Project
       run: npm test
     - name: Testing complete
-      run: echo " Testing completed"
+      run: " Testing completed"
   
   build:
     needs: testing
@@ -71,26 +71,26 @@ jobs:
     - name: testing the Project
       run: npm test
     - name: Testing complete
-      run: echo " Testing completed"
+      run: " Testing completed"
 
   info:
-    needs: build
+    needs: testing
     runs-on: ubuntu-latest
     steps:
-    - name: Install Node
+    - name: Checkout Node
       uses: actions/checkout@v3
-    - name: Install Nodes
+    - name: Install Node
       uses: actions/setup-node@v3
     - name: Install dependencies
       run: npm ci
     - name: Linting the Project 
-      run: npm lint
+      run: npm run lint
     - name: testing the Project
-      run: npm run test
+      run: npm test
     - name: Testing complete
-      run: echo " Testing completed"
+      run: " Testing completed"
     - name: "Display the info"
-      run: echo {{$toJSON(github)}}
+      run: echo {{$toJOSN(github)}}
 
   
   
