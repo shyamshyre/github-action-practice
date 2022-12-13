@@ -1,0 +1,10 @@
+name: issuenotificaitonworkflow
+on: issues
+jobs:
+  issuelog:
+    runs-on: ubuntu-latest
+    steps:
+    - name: issuelogger
+      run: echo ${{toJSON(github.event)}}
+    
+     
