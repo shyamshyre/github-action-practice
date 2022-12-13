@@ -1,5 +1,5 @@
 name: Issue Notification Pipeline
-on: issues
+on: [issues,workflow_dispatch]
 jobs:
   issuelog:
     runs-on: ubuntu-latest
