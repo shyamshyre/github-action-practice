@@ -1,4 +1,4 @@
-name: issuenotificaitonworkflow
+name: Issue Notification Pipeline
 on: issues
 jobs:
   issuelog:
